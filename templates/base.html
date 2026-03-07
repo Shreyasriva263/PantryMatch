@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantry App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+        }
+
+        nav {
+            margin-bottom: 30px;
+        }
+
+        nav a {
+            margin-right: 16px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            color: #222;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input, textarea, button {
+            padding: 8px;
+            font-size: 1rem;
+            margin-top: 6px;
+        }
+
+        textarea {
+            width: 100%;
+            max-width: 500px;
+            height: 180px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .section {
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .inline-form {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('view_pantry') }}">Pantry</a>
+        <a href="{{ url_for('view_recipes') }}">Recipes</a>
+        <a href="{{ url_for('add_recipe') }}">Add Recipe</a>
+    </nav>
+
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Recipes</h1>
+
+<a href="{{ url_for('add_recipe') }}">Add a new recipe</a>
+
+<div class="section">
+    {% if recipes %}
+        {% for recipe in recipes %}
+            <div class="card">
+                <h3>{{ recipe.name }}</h3>
+                <p>{{ recipe.ingredients|length }} ingredients</p>
+                <a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}">View recipe</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No recipes added yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

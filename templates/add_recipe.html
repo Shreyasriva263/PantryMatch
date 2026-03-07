@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Add Recipe</h1>
+
+<form method="POST">
+    <div class="section">
+        <label for="name">Recipe name:</label><br>
+        <input type="text" id="name" name="name" placeholder="e.g. Pancakes" required>
+    </div>
+
+    <div class="section">
+        <label for="ingredients">Ingredients (one per line):</label><br>
+        <textarea id="ingredients" name="ingredients" placeholder="flour&#10;milk&#10;eggs&#10;butter" required></textarea>
+    </div>
+
+    <button type="submit">Save Recipe</button>
+</form>
+{% endblock %}

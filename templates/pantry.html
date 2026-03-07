@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Pantry</h1>
+
+<form method="POST">
+    <label for="item">Add pantry item:</label><br>
+    <input type="text" id="item" name="item" placeholder="e.g. eggs" required>
+    <button type="submit">Add</button>
+</form>
+
+<div class="section">
+    <h2>Current Pantry Items</h2>
+
+    {% if pantry_items %}
+        <ul>
+            {% for item in pantry_items %}
+                <li>
+                    {{ item }}
+                    <form class="inline-form" method="POST" action="{{ url_for('delete_pantry_item', item_index=loop.index0) }}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No pantry items yet.</p>
+    {% endif %}
+</div>
+{% endblock %}
