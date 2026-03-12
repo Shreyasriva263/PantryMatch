@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
 # In-memory storage for now
-# Later you can replace this with SQLite
+
 pantry_items = []
 recipes = []
 next_recipe_id = 1

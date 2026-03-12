@@ -1,0 +1,54 @@
+body {
+  background-color: #9ED14F;
+  color: #333;
+}
+nav a {
+    display: inline-block;     /* makes the link behave like a button */
+    background-color: #4CAF50;
+    color: white;
+
+    padding: 10px 18px;        /* creates the rectangle */
+    margin-right: 10px;
+
+    text-decoration: none;     /* removes underline */
+    border-radius: 6px;        /* rounded corners */
+
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: #45a049;
+}
+.pantry {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* items per shelf */
+    gap: 20px;
+    padding: 20px;
+}
+
+.pantry-item {
+    background: #fff8dc;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+    font-weight: bold;
+}
+
+.pantry-item button {
+    margin-top: 8px;
+    background-color: #ff6b6b;
+}
+.pantry {
+    position: relative;
+}
+
+.pantry::after {
+    content: "";
+    grid-column: 1 / -1;
+}
+.pantry-item {
+    border-bottom: 8px solid #8b5a2b;
+}
