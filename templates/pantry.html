@@ -2,35 +2,59 @@
 
 {% block content %}
 <h1>My Kitchen Pantry 🧺</h1>
+<div>Keep a track of ingredients you currently have by adding them into the pantry!<div>
 
-<form method="POST">
-    <label for="item">Add pantry item:</label><br>
-    <input type="text" id="item" name="item" placeholder="e.g. eggs" required>
-    <button type="submit">Add</button>
-</form>
+        <form method="POST">
+            <label for="item">Add pantry items:</label><br>
+            <input type="text" id="item" name="item" placeholder="e.g. eggs" required>
+            <button type="submit">Add</button>
+        </form>
 
-<div class="section">
-    <h2>Current Pantry Items</h2>
+        <div class="section">
+            <h2>Current Pantry Items</h2>
 
-    {% if pantry_items %}
-        <div class="pantry">
-            {% for item in pantry_items %}
+            {% if pantry_items %}
+            <div class="pantry">
+                {% for item in pantry_items %}
                 <div class="pantry-item">
-                    🥫 {{ item }}
+                    {% set item_lower = item.lower() %}
+                    {% if "egg" in item_lower %}
+                    🥚
+                    {% elif "milk" in item_lower %}
+                    🥛
+                    {% elif "bread" in item_lower %}
+                    🍞
+                    {% elif "rice" in item_lower %}
+                    🍚
+                    {% elif "pasta" in item_lower %}
+                    🍝
+                    {% elif "cheese" in item_lower %}
+                    🧀
+                    {% elif "apple" in item_lower %}
+                    🍎
+                    {% elif "banana" in item_lower %}
+                    🍌
+                    {% elif "tomato" in item_lower %}
+                    🍅
+                    {% elif "carrot" in item_lower %}
+                    🥕
+                    {% else %}
+                    🥫
+                    {% endif %}
 
-                    <form class="inline-form"
-                          method="POST"
-                          action="{{ url_for('delete_pantry_item', item_index=loop.index0) }}">
+                    {{ item }}
+                    <form class="inline-form" method="POST"
+                        action="{{ url_for('delete_pantry_item', item_index=loop.index0) }}">
                         <button type="submit">Delete</button>
                     </form>
 
                 </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
+
+            {% else %}
+            <p>No pantry items yet.</p>
+            {% endif %}
         </div>
 
-    {% else %}
-        <p>No pantry items yet.</p>
-    {% endif %}
-</div>
-
-{% endblock %}
+        {% endblock %}
