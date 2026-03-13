@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Edit Recipe</h2>
+
+<form method="POST">
+    <label for="name">Recipe Name:</label><br>
+    <input type="text" name="name" id="name" value="{{ recipe['name'] }}">
+
+    <br><br>
+
+    <label for="ingredients">Ingredients:</label><br>
+
+    <textarea name="ingredients" id="ingredients" rows="8">{% for ingredient in recipe['ingredients'] %}{{ ingredient }}
+{% endfor %}</textarea>
+
+    <br>
+
+    <button type="submit">Save Changes</button>
+</form>
+
+{% endblock %}

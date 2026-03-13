@@ -81,6 +81,32 @@ def add_recipe():
             return redirect(url_for("view_recipes"))
 
     return render_template("add_recipe.html")
+@app.route("/recipes/edit/<int:recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    recipe = next((r for r in recipes if r["id"] == recipe_id), None)
+
+    if recipe is None:
+        return "Recipe not found", 404
+
+    if request.method == "POST":
+        name = request.form.get("name", "").strip()
+        ingredients_text = request.form.get("ingredients", "").strip()
+
+        if name and ingredients_text:
+            ingredients = [
+                line.strip()
+                for line in ingredients_text.splitlines()
+                if line.strip()
+            ]
+
+            recipe["name"] = name
+            recipe["ingredients"] = ingredients
+
+            return redirect(url_for("view_recipes"))
+
+    return render_template("edit_recipe.html", recipe=recipe)
+
+    
 
 
 @app.route("/recipes/<int:recipe_id>")
