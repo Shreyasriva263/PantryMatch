@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500&display=swap');
 body {
-  background-color: #9ED14F;
+ background-image: url("picnic1.jpg");
   color: #333;
+}
+h1, h2, h3 {
+  font-family: "Playfair Display", serif;
 }
 nav a {
     display: inline-block;     /* makes the link behave like a button */
-    background-color: #4CAF50;
+    background-color: #f07cc9;
     color: white;
 
     padding: 10px 18px;        /* creates the rectangle */
@@ -17,11 +21,9 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #45a049;
+    background-color: #cc94af;
 }
 .pantry {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* items per shelf */
     gap: 20px;
     padding: 20px;
 }
@@ -37,9 +39,16 @@ nav a:hover {
     font-weight: bold;
 }
 
-.pantry-item button {
-    margin-top: 8px;
-    background-color: #ff6b6b;
+.inline-form button {
+    background: none;
+    border: none;
+    color: #c0392b;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.inline-form button:hover {
+    text-decoration: underline;
 }
 .pantry {
     position: relative;
@@ -51,4 +60,17 @@ nav a:hover {
 }
 .pantry-item {
     border-bottom: 8px solid #8b5a2b;
+}
+.pantry {
+    max-width: 500px;
+    margin: 30px auto;
+
+    background: rgba(255,255,255,0.9);
+
+    border: 3px solid #7a4f2a;
+    border-radius: 12px;
+
+    padding: 20px;
+
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }

@@ -81,6 +81,7 @@ def add_recipe():
             return redirect(url_for("view_recipes"))
 
     return render_template("add_recipe.html")
+
 @app.route("/recipes/edit/<int:recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     recipe = next((r for r in recipes if r["id"] == recipe_id), None)

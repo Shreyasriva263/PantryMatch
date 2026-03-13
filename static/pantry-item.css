@@ -1,0 +1,22 @@
+.pantry-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #ddd;
+
+    font-size: 18px;
+}
+.inline-form button {
+    background: none;
+    border: none;
+    color: #c0392b;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.inline-form button:hover {
+    text-decoration: underline;
+}
